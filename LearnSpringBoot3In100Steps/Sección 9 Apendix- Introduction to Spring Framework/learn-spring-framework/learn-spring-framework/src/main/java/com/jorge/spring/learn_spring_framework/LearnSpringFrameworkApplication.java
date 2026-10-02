@@ -1,9 +1,7 @@
 package com.jorge.spring.learn_spring_framework;
 
+import com.jorge.spring.learn_spring_framework.enterprise.web.MyWebController;
 import com.jorge.spring.learn_spring_framework.game.GameRunner;
-import com.jorge.spring.learn_spring_framework.game.MarioGame;
-import com.jorge.spring.learn_spring_framework.game.PacmanGame;
-import com.jorge.spring.learn_spring_framework.game.SuperContraGame;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -20,7 +18,9 @@ public class LearnSpringFrameworkApplication {
 		//GameRunner runner = new GameRunner(game);
 
 		GameRunner runner = context.getBean(GameRunner.class);
-
 		runner.run();
+
+		MyWebController controller = context.getBean(MyWebController.class);
+		System.out.println(controller.returnValueFromBussinessService());
 	}
 }
